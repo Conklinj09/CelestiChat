@@ -143,15 +143,19 @@
         function sendMessage() {
             let userInput = document.getElementById("user-input").value.trim();
             if (!userInput) return;
-
+        
             let chatLog = document.getElementById("chat-log");
             chatLog.innerHTML += `<div class="flex justify-end"><p class="user-text">${userInput}</p></div>`;
-
+        
             document.getElementById("user-input").value = "";
-
-            chatLog.innerHTML += `<div class="bot-text typing-effect">✨ Typing... ✨</div>`;
+        
+            let typingEffect = document.createElement("div");
+            typingEffect.className = "bot-text typing-effect";
+            typingEffect.innerHTML = "✨ Typing... ✨";
+            chatLog.appendChild(typingEffect);
+        
             chatLog.scrollTop = chatLog.scrollHeight;
-
+        
             fetch("/chat", {
                 method: "POST",
                 body: JSON.stringify({ message: userInput }),
@@ -159,12 +163,17 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.querySelector(".typing-effect").remove();
+                typingEffect.remove();
                 chatLog.innerHTML += `<div class="flex justify-start"><p class="bot-text">${data.response}</p></div>`;
                 chatLog.scrollTop = chatLog.scrollHeight;
             })
-            .catch(error => console.error("Error:", error));
+            .catch(error => {
+                typingEffect.remove();
+                chatLog.innerHTML += `<div class="flex justify-start"><p class="bot-text">Oops! Something went wrong. Try again. ❄️</p></div>`;
+                console.error("Error:", error);
+            });
         }
+        
 
         document.getElementById("user-input").addEventListener("keypress", function(event) {
             if (event.key === "Enter") sendMessage();
