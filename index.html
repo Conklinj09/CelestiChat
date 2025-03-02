@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CelestiChat ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap');
+
+        body {
+            background: #f8c8dc;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        .navbar {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Great Vibes', cursive;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbox {
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .user-text, .bot-text {
+            padding: 10px 15px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+            font-weight: 600;
+        }
+
+        .user-text {
+            background: #d3a3e6;
+            align-self: flex-end;
+            color: white;
+        }
+
+        .bot-text {
+            background: #ffffff;
+            align-self: flex-start;
+            color: #6a0dad;
+            font-family: 'Great Vibes', cursive;
+            font-size: 18px;
+        }
+
+        .typing-effect {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Falling Flowers Animation */
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100px);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .avatar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">✨ CelestiChat ✨</div>
+
+    <!-- Chat Container -->
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="chatbox p-4">
+            <div class="avatar">
+                <img src="elf_avatar.png" alt="Celestial Elf Avatar">
+            </div>
+            <div id="chat-log" class="flex flex-col space-y-2 mt-3"></div>
+
+            <div class="mt-3 flex">
+                <input id="user-input" type="text" class="w-full p-2 rounded-l-lg border focus:outline-none" placeholder="Type something celestial...">
+                <button onclick="sendMessage()" class="bg-purple-700 text-white px-4 py-2 rounded-r-lg">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Falling Flowers Script -->
+    <script>
+        function createFlower() {
+            let flower = document.createElement("img");
+            flower.src = "https://www.pngall.com/wp-content/uploads/2016/04/Flower-Free-Download-PNG.png";
+            flower.className = "flower";
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+
+        setInterval(createFlower, 500);
+
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+
+            let chatLog = document.getElementById("chat-log");
+            chatLog.innerHTML += `<div class="flex justify-end"><p class="user-text">${userInput}</p></div>`;
+
+            document.getElementById("user-input").value = "";
+
+            chatLog.innerHTML += `<div class="bot-text typing-effect">✨ Typing... ✨</div>`;
+
+            fetch("/chat", {
+                method: "POST",
+                body: JSON.stringify({ message: userInput }),
+            
