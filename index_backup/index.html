@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whimsy Chatbot ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Quicksand:wght@400;600&display=swap');
+
+        body {
+            background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .chatbox {
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-text, .bot-text {
+            padding: 8px 12px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-text {
+            background: #ffb6c1;
+            align-self: flex-end;
+        }
+
+        .bot-text {
+            background: #ffffff;
+            align-self: flex-start;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .typing-effect {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+
+    <div class="chatbox p-4">
+        <h1 class="text-xl text-pink-600 text-center font-bold">✨ Whimsy Chat ✨</h1>
+        <p>Ask me anything! I'm here to help you. 🌟</p>
+        <div id="chat-log" class="flex flex-col space-y-2 mt-3"></div>
+
+        <div class="mt-3 flex">
+            <input id="user-input" type="text" class="w-full p-2 rounded-l-lg border focus:outline-none" placeholder="Type something magical...">
+            <button onclick="sendMessage()" class="bg-pink-500 text-white px-4 py-2 rounded-r-lg">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+
+            let chatLog = document.getElementById("chat-log");
+            chatLog.innerHTML += `<div class="flex justify-end"><p class="user-text">${userInput}</p></div>`;
+
+            document.getElementById("user-input").value = "";
+
+            chatLog.innerHTML += `<div class="bot-text typing-effect">✨ Typing... ✨</div>`;
+            
+            fetch("/chat", {
+                method: "POST",
+                body: JSON.stringify({ message: userInput }),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector(".typing-effect").remove();
+                chatLog.innerHTML += `<div class="flex justify-start"><p class="bot-text">${data.response}</p></div>`;
+                chatLog.scrollTop = chatLog.scrollHeight;
+            });
+        }
+
+        document.getElementById("user-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") sendMessage();
+        });
+    </script>
+
+</body>
+</html>

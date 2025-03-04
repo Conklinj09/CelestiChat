@@ -46,11 +46,3 @@ if __name__ == '__main__':
 
 
 
-def get_response(user_input):
-    user_input = user_input.lower()
-    
-    for key in responses:
-        if key in user_input:  # Ensures partial matches work
-            return responses[key]
-
-    return "Oops! I fluttered away for a second. Try something else! 🌷"
