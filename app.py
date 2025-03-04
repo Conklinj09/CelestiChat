@@ -368,6 +368,21 @@ def chat():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+    
+#logging for debugging errors
+import logging
 
+logging.basicConfig(filename="chatbot_errors.log", level=logging.ERROR)
+
+def chatbot_response(user_input):
+    try:
+        response = process_user_input(user_input)
+        if not response:
+            raise ValueError("No valid response found.")
+        return response
+    except Exception as e:
+        logging.error(f"Error handling input '{user_input}': {str(e)}")
+        return fallback_response(user_input)
 
 
