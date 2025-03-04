@@ -44,14 +44,12 @@ responses = {
     "I'm feeling wonderful": "I'm so glad to hear that! 🌟 What's making you feel wonderful today?",
     "I'm feeling awesome": "That's wonderful! 🌈 What's making you feel awesome today?",
     "I'm feeling incredible": "I'm here to celebrate your incredible self! 🌟 What's making you feel incredible today?",
-    
     "I want to talk": "I'm here to listen and chat with you! 🌸 What's on your mind?",
     "I want to chat": "I'm here to chat and bring you joy! 🌟 What's on your mind?",
     "I want to play": "I'm here to play and have fun with you! 🎉 What game would you like to play?",
     "I want to relax": "I'm here to help you relax and unwind! 🌿 Let's take a deep breath together.",
     "I want to have fun": "I'm here to bring you fun and excitement! 🎉 What would you like to do for fun?",
-    "let's play": "I'm ready to play and have fun with you! 🎉 What game would you like to play?",
-    
+    "let's play": "I'm ready to play and have fun with you! 🎉 What game would you like to play?", 
     "what's up": "Just sprinkling some magic and joy! 🌟 How about you?",
     "hi": "🌸 Hi there! What brings you to this magical realm? ✨",
     "hey": "🌸 Hey there! How can I bring you joy today?",
@@ -68,8 +66,6 @@ responses = {
     "good afternoon": "Good afternoon, lovely! 🌸 The clouds must be looking so lovely today where you are.",
     "good evening": "Good evening, shining star! 🌟 Have you taken a moment to take a look at the sky today?",
     "good night": "Good night, sweet dreamer! 🌙 I wish you the sweetest of dreams tonight!",
-    
-    
     "bye": "Goodbye, beautiful soul! 🌙 Sweet dreams!",
     "love": "Love is like fairy dust—spread it everywhere! 💖",
     "magic": "✨ Poof! A sprinkle of magic just for you! ✨",
