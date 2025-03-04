@@ -384,5 +384,25 @@ def chatbot_response(user_input):
     except Exception as e:
         logging.error(f"Error handling input '{user_input}': {str(e)}")
         return fallback_response(user_input)
+    
+    
+#handle my typo errors let's call them fuzzywuzzy
+#❌ Gibberish ("asdkjaskd")
+#❌ Edge cases ("", "123", "!@#$$%")
+#✅ Similar phrases (e.g., "helo" instead of "hello")
+
+from fuzzywuzzy import process
+
+responses = {
+    "hello": "Hi there!",
+    "help": "What do you need help with?",
+}
+
+def fuzzy_match(user_input):
+    best_match = process.extractOne(user_input, responses.keys(), score_cutoff=80)
+    if best_match:
+        return responses[best_match[0]]
+    return fallback_response(user_input)
+
 
 
