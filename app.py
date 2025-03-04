@@ -328,6 +328,26 @@ def get_response(user_input):
             return responses[key]
     return "Oops! I fluttered away for a second. Try something else! 🌷"
 
+def chatbot_response(user_input):
+    responses = {
+        "hello": "Hi there! How can I help?",
+        "bye": "Goodbye! Have a great day!",
+        "help": "I can assist with various topics. What do you need help with?",
+    }
+    
+    # Check if input is in predefined responses
+    response = responses.get(user_input.lower(), None)
+    
+    if response:
+        return response
+    else:
+        return fallback_response(user_input)
+
+def fallback_response(user_input):
+    suggestions = ["Try rephrasing your question.", "I might not understand that yet, but I'm learning!", "Could you provide more details?"]
+    return f"Sorry, I didn't quite catch that. {random.choice(suggestions)}"
+
+
 @app.route('/')
 def home():
     return render_template('index.html')  # This loads the chatbot UI
