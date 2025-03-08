@@ -1,0 +1,5 @@
+## Dependencies
+
+Flask
+Flask-SQLAlchemy
+python-dotenv
