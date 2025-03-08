@@ -20,7 +20,7 @@ CelestiChat/
 ## 🚀 Installation Guide
 ### 1️⃣ Clone the Repository ✨
 ```bash
-git clone https://github.com/yourusername/CelestiChat.git
+git clone https://github.com/Conklinj09/CelestiChat.git
 cd CelestiChat
 ```
 
@@ -78,5 +78,5 @@ python -m unittest discover -s tests
 - 🌿 Interactive celestial UI improvements
 
 ---
-Developed with 💫 love, 🌻 flowers, and 🌙 cosmic energy by [Your Name]
+Developed with 💫 love, 🌻 flowers, and 🌙 cosmic energy by Jeanette Conklin
 
