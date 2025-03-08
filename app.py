@@ -391,7 +391,10 @@ def chatbot_response(user_input):
 #❌ Edge cases ("", "123", "!@#$$%")
 #✅ Similar phrases (e.g., "helo" instead of "hello")
 
+import fuzzywuzzy
 from fuzzywuzzy import process
+
+print(process.extractOne("apple", ["banana", "apple", "grape"])) 
 
 responses = {
     "hello": "Hi there!",
