@@ -1,76 +1,105 @@
-# CelestiChat
+🌙✨ CelestiChat 🌸🌟
 
-CelestiChat ✨
+CelestiChat is a whimsical, AI-powered chatbot built with Flask and enhanced with SQLite, Tailwind CSS, and JavaScript (Fetch API) for a seamless and beautiful user experience. Designed with celestial and floral aesthetics in mind, CelestiChat brings magic and functionality together! 🌿🌠🌷
 
-CelestiChat is a whimsical, celestial-themed chatbot designed to provide dreamy and magical conversations. Inspired by celestial elves and cosmic wonders, this chatbot features a soft pink interface, purple text, and an enchanting elf avatar with translucent hair. It is built using Flask for the backend and a beautifully styled HTML/CSS frontend powered by Tailwind.
+🌌 Project Structure
 
-Features 🌙
+CelestiChat/
+│── app.py              # 🌟 Main Flask app
+│── config.py           # 🎨 Configuration settings
+│── requirements.txt    # 📜 Dependencies
+│── database.db         # 🌍 SQLite database
+│── /static/            # 🎨 CSS, JS, and images (Styled with Tailwind CSS)
+│── /templates/         # 🏗️ HTML templates (if applicable)
+│── /models/            # 🔍 Database models
+│── /routes/            # 🚀 API routes
+│── /tests/             # ✅ Unit tests
+│── /venv/              # 🧪 Virtual environment (optional)
 
-Rule-Based Responses: The chatbot replies to messages based on predefined keywords.
+🚀 Installation Guide
 
-Whimsical UI: A celestial-inspired theme with soft pink backgrounds, falling flowers, and an ethereal elf avatar.
+1️⃣ Clone the Repository ✨
 
-Responsive Design: Works seamlessly across desktop and mobile devices.
+git clone https://github.com/Conklinj09/CelestiChat.git
+cd CelestiChat
 
-Typing Effect: Adds a delay to simulate real conversation flow.
+2️⃣ Set Up a Virtual Environment 🌀
 
-Session-Based Memory: Remembers short-term interactions within a session.
+python -m venv venv
+source venv/bin/activate  # On Mac/Linux
+venv\Scripts\activate  # On Windows
 
-Technologies Used 🔮
+3️⃣ Install Dependencies 🌙
 
-Python & Flask: For backend processing.
+pip install -r requirements.txt
 
-HTML, Tailwind CSS: For a dreamy and elegant frontend.
+4️⃣ Set Up the Database 🌸
 
-JavaScript (Fetch API): To handle chatbot communication.
+Run the following to create the SQLite database and necessary tables:
 
-Flask-CORS: Ensures smooth interaction between frontend and backend.
+python -m unittest discover -s tests -p "test_*.py"
 
-Installation & Setup 🛠
-
-Prerequisites:
-
-Python 3.x installed.
-
-Flask and Flask-CORS installed:
-
-pip install flask flask-cors
-
-Steps:
-
-Clone the repository or create project files manually.
-
-Place app.py and index.html in the project folder.
-
-Save the generated Celestial Elf Avatar as elf_avatar.png in the same directory.
-
-Run the Flask server:
+5️⃣ Run the Application 🌠
 
 python app.py
 
-Open your browser and visit:
+The Flask app will start running at http://127.0.0.1:5000/. Open your browser and chat with CelestiChat under the stars! 🌟✨
 
-http://127.0.0.1:5000/
+🛠 Installed Dependencies 🌿
 
-Start chatting with CelestiChat! 🌸
+Here are the key packages used in this project:
 
-Customization 🎨
+Flask – Web framework 🌍
 
-Modify responses in app.py to add more conversational topics.
+Flask-SQLAlchemy – ORM for database handling 📚
 
-Adjust UI colors and fonts in index.html for a unique style.
+Flask-CORS – Enables cross-origin requests 🔗
 
-Replace the avatar image with another celestial-themed character.
+python-dotenv – Load environment variables 🔐
 
-Future Enhancements 🚀
+fuzzywuzzy – String matching for chatbot interactions 🧩
 
-AI-Powered Responses using GPT or NLP models.
+python-Levenshtein – Optimized string matching performance ⚡
 
-User Authentication for personalized interactions.
+Tailwind CSS – Modern styling framework 🎨
 
-Sound & Animation Effects for an even more immersive experience.
+JavaScript (Fetch API) – Handles API requests dynamically 🚀
 
-Credits 🌟
+🌟 API Routes
 
-Created with love for those who dream beyond the stars. 🌠💜
+Endpoint
+
+Method
+
+Description
+
+/users/add
+
+POST
+
+Add a new user
+
+/users/
+
+GET
+
+Retrieve all users
+
+🧪 Running Tests 🔬
+
+To run all unit tests, execute:
+
+python -m unittest discover -s tests
+
+🌠 Future Features 🌙
+
+✨ NLP-powered chatbot responses
+
+🔑 User authentication & sessions
+
+🌎 Multi-language support
+
+🌿 Interactive celestial UI improvements
+
+Developed with 💫 love, 🌻 flowers, and 🌙 cosmic energy by Jeanette
 
