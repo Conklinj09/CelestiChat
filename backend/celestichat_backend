@@ -1,0 +1,38 @@
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+import os
+
+app = Flask(__name__)
+
+# SQLite Database Configuration
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(BASE_DIR, "database.db")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+# Define a User model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+
+# Initialize the database
+with app.app_context():
+    db.create_all()
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    data = request.json
+    new_user = User(name=data["name"], email=data["email"])
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({"message": "User added successfully"}), 201
+
+@app.route('/users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    return jsonify([{"id": user.id, "name": user.name, "email": user.email} for user in users])
+
+if __name__ == "__main__":
+    app.run(debug=True)
