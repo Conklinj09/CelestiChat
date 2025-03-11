@@ -1,82 +1,37 @@
-# 🌙✨ CelestiChat 🌸🌟
+# 🌙 **CelestiChat** 🌟
 
-CelestiChat is a **whimsical, AI-powered chatbot** built with **Flask** and enhanced with **SQLite**, **Tailwind CSS**, and **JavaScript (Fetch API)** for a seamless and beautiful user experience. Designed with celestial and floral aesthetics in mind, CelestiChat brings magic and functionality together! 🌿🌠🌷
+Welcome to **CelestiChat**! 🌌 A magical chatbot built with Python that’s here to brighten your day 🌠. With CelestiChat, you get a conversational assistant that not only chats but learns and adapts like the starry sky ✨. It remembers past messages, offers relevant replies, and is always ready to make your conversation a little more celestial. 🌙💫
 
-## 🌌 Project Structure
-```
-CelestiChat/
-│── app.py              # 🌟 Main Flask app
-│── config.py           # 🎨 Configuration settings
-│── requirements.txt    # 📜 Dependencies
-│── database.db         # 🌍 SQLite database
-│── /static/            # 🎨 CSS, JS, and images (Styled with Tailwind CSS)
-│── /templates/         # 🏗️ HTML templates (if applicable)
-│── /models/            # 🔍 Database models
-│── /routes/            # 🚀 API routes
-│── /tests/             # ✅ Unit tests
-│── /venv/              # 🧪 Virtual environment (optional)
-```
+## 🚀 Features
 
-## 🚀 Installation Guide
-### 1️⃣ Clone the Repository ✨
-```bash
-git clone https://github.com/Conklinj09/CelestiChat.git
-cd CelestiChat
-```
+- **🌟 Smart Responses**: CelestiChat has expanded its vocabulary to provide answers that are more fun, detailed, and accurate. 🌈
+- **🌙 Context-Aware Conversations**: With its brand new memory, CelestiChat now remembers past chats, making conversations feel more personal and connected. 🪐
+- **💬 Backend Magic**: Powered by a Python backend using **Flask** and **SQLite3**, CelestiChat uses clever logic and database integration to handle conversations smoothly. 🌍
 
-### 2️⃣ Set Up a Virtual Environment 🌀
-```bash
-python -m venv venv
-source venv/bin/activate  # On Mac/Linux
-venv\Scripts\activate  # On Windows
-```
+## 🌌 Latest Updates
 
-### 3️⃣ Install Dependencies 🌙
-```bash
+- **✨ Context-Awareness**: Now, CelestiChat remembers your previous conversations and uses that to make every reply shine brighter and feel more relevant. 🌠
+- **🌙 Expanded Responses**: From casual chats to deep space talks, CelestiChat’s answers are now more engaging and fun! 🌟
+
+## 🛠️ Setup
+
+1. Clone the repository from the stars:
+   ```bash
+   git clone https://github.com/yourusername/CelestiChat.git
+Install the cosmic dependencies:
+
+bash
+Copy
 pip install -r requirements.txt
-```
+Launch the app and let the magic begin:
 
-### 4️⃣ Set Up the Database 🌸
-Run the following to create the SQLite database and necessary tables:
-```bash
-python -m unittest discover -s tests -p "test_*.py"
-```
-
-### 5️⃣ Run the Application 🌠
-```bash
+bash
+Copy
 python app.py
-```
-The Flask app will start running at **http://127.0.0.1:5000/**. Open your browser and chat with CelestiChat under the stars! 🌟✨
-
-## 🛠 Installed Dependencies 🌿
-Here are the key packages used in this project:
-- **Flask** – Web framework 🌍
-- **Flask-SQLAlchemy** – ORM for database handling 📚
-- **Flask-CORS** – Enables cross-origin requests 🔗
-- **python-dotenv** – Load environment variables 🔐
-- **fuzzywuzzy** – String matching for chatbot interactions 🧩
-- **python-Levenshtein** – Optimized string matching performance ⚡
-- **Tailwind CSS** – Modern styling framework 🎨
-- **JavaScript (Fetch API)** – Handles API requests dynamically 🚀
-
-## 🌟 API Routes
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/users/add` | POST | Add a new user |
-| `/users/` | GET | Retrieve all users |
-
-## 🧪 Running Tests 🔬
-To run all unit tests, execute:
-```bash
-python -m unittest discover -s tests
-```
-
-## 🌠 Future Features 🌙
-- ✨ NLP-powered chatbot responses
-- 🔑 User authentication & sessions
-- 🌎 Multi-language support
-- 🌿 Interactive celestial UI improvements
-
----
-Developed with 💫 love, 🌻 flowers, and 🌙 cosmic energy by Jeanette Conklin
-
+🌠 Technologies Used
+Python 🐍
+Flask 🚀 (For Backend)
+SQLite3 🌌 (For Database)
+Natural Language Processing Libraries (e.g., NLTK, spaCy) 🌙
+🌌 Contributing
+Want to join the celestial crew? ✨ Fork the repository, submit a pull request, and together we can make CelestiChat even more stellar! 🌟
