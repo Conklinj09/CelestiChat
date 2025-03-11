@@ -4,6 +4,15 @@ import sqlite3
 def connect_db():
     return sqlite3.connect("celestichat.db")
 
+# Retrieve recent chat messages (limit default = 10)
+def get_chat_history(limit=10):
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT user, message, timestamp FROM messages ORDER BY timestamp DESC LIMIT ?", (limit,))
+    messages = cursor.fetchall()
+    conn.close()
+    return messages
+
 # Create the messages table (run this once)
 def create_table():
     conn = connect_db()
