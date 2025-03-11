@@ -18,20 +18,22 @@ Welcome to **CelestiChat**! 🌌 A magical chatbot built with Python that’s he
 1. Clone the repository from the stars:
    ```bash
    git clone https://github.com/yourusername/CelestiChat.git
-Install the cosmic dependencies:
 
+##  🌌 Install the cosmic dependencies:
 bash
 Copy
 pip install -r requirements.txt
-Launch the app and let the magic begin:
 
+##  🌌 Launch the app and let the magic begin:
 bash
 Copy
 python app.py
-🌠 Technologies Used
+
+##  🌌 Technologies Used
 Python 🐍
 Flask 🚀 (For Backend)
 SQLite3 🌌 (For Database)
 Natural Language Processing Libraries (e.g., NLTK, spaCy) 🌙
-🌌 Contributing
+
+##  🌌  Contributing
 Want to join the celestial crew? ✨ Fork the repository, submit a pull request, and together we can make CelestiChat even more stellar! 🌟
