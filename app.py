@@ -407,5 +407,31 @@ def fuzzy_match(user_input):
         return responses[best_match[0]]
     return fallback_response(user_input)
 
+from database import insert_message, get_chat_history
+
+app = Flask(__name__)
+
+# Route to store a new message
+@app.route('/send', methods=['POST'])
+def send_message():
+    data = request.json
+    user = data.get("user", "User")
+    message = data.get("message", "")
+
+    if message:
+        insert_message(user, message)
+        return jsonify({"status": "success", "message": "Message logged!"})
+    
+    return jsonify({"status": "error", "message": "Message cannot be empty!"})
+
+# Route to fetch chat history
+@app.route('/history', methods=['GET'])
+def chat_history():
+    messages = get_chat_history()
+    return jsonify(messages)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 

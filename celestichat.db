@@ -1,0 +1,46 @@
+import sqlite3
+
+# Connect to the database
+def connect_db():
+    return sqlite3.connect("celestichat.db")
+
+# Create the messages table (run this once)
+def create_table():
+    conn = connect_db()
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user TEXT,
+        message TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+    
+    conn.commit()
+    conn.close()
+
+# Insert a chat message into the database
+def insert_message(user, message):
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("INSERT INTO messages (user, message) VALUES (?, ?)", (user, message))
+    
+    conn.commit()
+    conn.close()
+
+# Retrieve chat history (latest 10 messages)
+def get_chat_history(limit=10):
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT user, message, timestamp FROM messages ORDER BY timestamp DESC LIMIT ?", (limit,))
+    messages = cursor.fetchall()
+
+    conn.close()
+    return messages
+
+# Run this function once to make sure the table is created
+create_table()
