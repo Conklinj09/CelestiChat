@@ -31,7 +31,7 @@ def get_bot_response(user_message):
             return responses[keyword]
 
     # Fallback response if no context is found
-    return "I'm not sure how to respond to that yet, but I'm learning! 🤖"
+    return "I didn't quite catch that. Could you clarify that for me?"
 
 # Route to handle user messages
 @app.route('/send', methods=['POST'])
