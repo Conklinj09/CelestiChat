@@ -35,5 +35,11 @@ Flask 🚀 (For Backend)
 SQLite3 🌌 (For Database)
 Natural Language Processing Libraries (e.g., NLTK, spaCy) 🌙
 
+## License 📜
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
+
+## Creator 🦄✨
+Jeanette Conklin is the brilliant creator behind CelestiChat. Their vision for a smart, context-aware chatbot is the foundation of this project.
+
 ##  🌌  Contributing
 Want to join the celestial crew? ✨ Fork the repository, submit a pull request, and together we can make CelestiChat even more stellar! 🌟
