@@ -43,3 +43,7 @@ Jeanette Conklin is the brilliant creator behind CelestiChat. Their vision for a
 
 ##  🌌  Contributing
 Want to join the celestial crew? ✨ Fork the repository, submit a pull request, and together we can make CelestiChat even more stellar! 🌟
+
+# **CelestiChat** 💬🤖✨
+
+![GNU License](https://img.shields.io/badge/License-GNU%20GPL%20v3-blue.svg)
